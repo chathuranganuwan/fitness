@@ -98,6 +98,26 @@ button:active {
 </style>
 
 
+
+
+ <style>
+    p {
+  animation-duration: 3s;
+  animation-name: slide-in;
+}
+
+@keyframes slide-in {
+  from {
+    translate: 150vw 0;
+    scale: 200% 1;
+  }
+
+  to {
+    translate: 0 0;
+    scale: 100% 1;
+  }
+}
+</style> 
 </head>
 
 <body>
@@ -190,6 +210,8 @@ button:active {
         <!-- Cta Section Begin -->
 
 <section>
+
+            
         <center> <p align=justify style="background-color:#292626d2; text-align: center;
             border-radius:4px;
             font-size:16px;
@@ -202,7 +224,6 @@ button:active {
 </p></center>
 
     </section>
-
 
         <br><br>
 
@@ -245,7 +266,7 @@ button:active {
 
 
     <!-- Services Section Begin -->
-    <section class="services-section spad">
+    <section class="services-section spad" class="hero-items owl-carousel">
         <div class="container" >
 
 <center>
@@ -992,7 +1013,7 @@ button:active {
                     <div class="col-lg-12">
                         <div class="copyright">
                             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Created  <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">CodeCC</a>
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                         </div>
                         <div class="footer-widget">
