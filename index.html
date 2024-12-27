@@ -23,101 +23,207 @@
     <link rel="stylesheet" href="css/style.css" type="text/css">
 
     <style>
+        .responsive-three-column-grid {
+            display: block;
+            background: #43d8ec;
+            text-align: center;
+        }
 
-.responsive-three-column-grid {
-  display:block;
-  background: #43d8ec;
-  text-align: center;
-}
+        /* columns */
+        .responsive-three-column-grid>* {
+            padding: 1rem;
+        }
 
-/* columns */
-.responsive-three-column-grid > * {
-  padding:1rem;
-}
+        /* tablet breakpoint */
+        @media (min-width:768px) {
+            .responsive-three-column-grid {
+                display: grid;
 
-/* tablet breakpoint */
-@media (min-width:768px) {
-  .responsive-three-column-grid {
-      display: grid;
-     
-      grid-auto-rows: 1fr;
-      grid-template-columns: 1fr 1fr 1fr;
-  }
-}
+                grid-auto-rows: 1fr;
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+        }
     </style>
 
 
-<style>
+    <style>
+        button {
+            font-size: 18px;
+            letter-spacing: 2px;
+            width: 50%;
+            padding: 10px 20px;
+            text-transform: uppercase;
+            display: inline-block;
+            text-align: center;
+            font-weight: bold;
+            padding: 0.7em 2em;
+            border: 3px solid #f34e3a;
+            border-radius: 2px;
+            position: relative;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.1);
+            color: #f34e3a;
+            text-decoration: none;
+            transition: 0.3s ease all;
+            z-index: 1;
+        }
+
+        button:before {
+            transition: 0.5s all ease;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            right: 50%;
+            bottom: 0;
+            opacity: 0;
+            content: '';
+            background-color: #f34e3a;
+            z-index: -1;
+        }
+
+        button:hover,
+        button:focus {
+            color: white;
+        }
+
+        button:hover:before,
+        button:focus:before {
+            transition: 0.5s all ease;
+            left: 0;
+            right: 0;
+            opacity: 1;
+        }
+
+        button:active {
+            transform: scale(0.9);
+        }
+    </style>
 
 
-button {
-  font-size: 18px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  display: inline-block;
-  text-align: center;
-  font-weight: bold;
-  padding: 0.7em 2em;
-  border: 3px solid #f34e3a;
-  border-radius: 2px;
-  position: relative;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.1);
-  color: #f34e3a;
-  text-decoration: none;
-  transition: 0.3s ease all;
-  z-index: 1;
-}
 
-button:before {
-  transition: 0.5s all ease;
-  position: absolute;
-  top: 0;
-  left: 50%;
-  right: 50%;
-  bottom: 0;
-  opacity: 0;
-  content: '';
-  background-color: #f34e3a;
-  z-index: -1;
-}
 
-button:hover, button:focus {
-  color: white;
-}
+    <style>
+        p {
+            animation-duration: 3s;
+            animation-name: slide-in;
+        }
 
-button:hover:before, button:focus:before {
-  transition: 0.5s all ease;
-  left: 0;
-  right: 0;
-  opacity: 1;
-}
+        @keyframes slide-in {
+            from {
+                translate: 150vw 0;
+                scale: 200% 1;
+            }
 
-button:active {
-  transform: scale(0.9);
-}
-</style>
+            to {
+                translate: 0 0;
+                scale: 100% 1;
+            }
+        }
+    </style>
 
 
 
+    <style>
+        .single-hero-item {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            /* Full viewport height */
+            background-position: center;
+            background-size: cover;
+            /* Ensure the background image covers the entire section */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
- <style>
-    p {
-  animation-duration: 3s;
-  animation-name: slide-in;
-}
+        /* Set Background Image Dynamically */
+        .set-bg {
+            background-image: url('img/slider-bg-11t.jpg');
+        }
 
-@keyframes slide-in {
-  from {
-    translate: 150vw 0;
-    scale: 200% 1;
-  }
+        /* Ensure the Hero Section adjusts properly for smaller screens */
+        @media (max-width: 1200px) {
+            .single-hero-item {
+                height: 80vh;
+                /* Reduce height on medium screens */
+            }
+        }
 
-  to {
-    translate: 0 0;
-    scale: 100% 1;
-  }
-}
-</style> 
+        @media (max-width: 768px) {
+            .single-hero-item {
+                height: 60vh;
+                /* Reduce height on smaller screens */
+            }
+        }
+
+        @media (max-width: 576px) {
+            .single-hero-item {
+                height: 50vh;
+                /* Further reduce height on mobile screens */
+            }
+        }
+    </style>
+
+    <style>
+        /* General reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        section {
+            padding: 20px;
+        }
+
+        /* Make the content responsive */
+        .responsive-containerr {
+            max-width: 100%;
+            /* Full width on smaller screens */
+            width: 100%;
+            margin: 0 auto;
+            /* Center the content */
+        }
+
+        .text-content {
+            background-color: #030000;
+            text-align: center;
+            border-radius: 4px;
+            font-size: 1rem;
+            /* Use relative units */
+            padding: 15px;
+            margin: 5px;
+            color: #fff;
+            /* White text */
+            line-height: 1.5;
+            /* Improve readability */
+        }
+
+        /* Media Query for smaller screens */
+        @media (max-width: 768px) {
+            .text-content {
+                font-size: 0.9rem;
+                /* Slightly smaller font size */
+                padding: 12px;
+                width: 100%;
+                /* Make the content width full on small screens */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .text-content {
+                font-size: 0.8rem;
+                /* Further reduce font size on very small screens */
+                padding: 10px;
+            }
+        }
+    </style>
+    <!-- edd -->
+
+
+
+
+
 </head>
 
 <body>
@@ -132,22 +238,20 @@ button:active {
         <div class="container">
             <div class="logo">
                 <a href="./index.html">
-                    <img src="img/logookl.jpg" alt="">
+                    <img src="img/logoor.jpg" width="350" height="60" alt="">
                 </a>
             </div>
             <div class="nav-menu">
                 <nav class="mainmenu mobile-menu">
                     <ul>
                         <li class="active"><a href="./index.html">Home</a></li>
-                        <li class="active"><a href="./about-us.html">About</a></li>
-                        <li class="active"><a href="./schedule.html">Test</a></li>
-                        <li class="active"><a href="./gallery.html">Our Experts</a></li>
-                        <li class="active"><a href="./blog.html">Top 10</a>
-                            <ul class="dropdown">
-                                <li class="active"><a href="blog-details.html">Blog Details</a></li>
-                            </ul>
+                        <li class="active"><a href="./about.html">About</a></li>
+                        <li class="active"><a href="./Test.html">Test</a></li>
+                        <li class="active"><a href="./experties.html">Our Experts</a></li>
+                        <li class="active"><a href="./top10.html">Top 10</a>
+
                         </li>
-                        <li class="active"><a href="./contact.html">Contacts</a></li>
+                        <li class="active"><a href="./about.html">Contacts</a></li>
                     </ul>
                 </nav>
                 <div class="nav-right search-switch">
@@ -165,10 +269,10 @@ button:active {
             <div class="single-hero-item set-bg" data-setbg="img/slider-bg-11t.jpg">
                 <div class="container">
                     <div class="hero-text">
-                        <br><br><br><br><br><br><br><br><br><br>
+                       
                         <h4>DISCOVER THE SIENCE</h4>
-                        <h1>Behind Your Fitness  <span></span></h1>
-                    
+                        <h1> Behind Your Fitness<span></span></h1>
+
                     </div>
                 </div>
             </div>
@@ -176,10 +280,10 @@ button:active {
             <div class="single-hero-item set-bg" data-setbg="img/slider-bg-122.jpg">
                 <div class="container">
                     <div class="hero-text">
-                        <br><br><br><br><br><br><br><br><br><br>
+                        <br><br>
                         <h4>DISCOVER THE SIENCE</h4>
-                        <h1>Behind Your Fitness  <span></span></h1>
-                    
+                        <h1>Behind Your Fitness <span></span></h1>
+
                     </div>
                 </div>
             </div>
@@ -207,90 +311,101 @@ button:active {
     <!-- Hero Section End -->
 
     <br>
-        <!-- Cta Section Begin -->
+    <!-- Cta Section Begin -->
 
-<section>
-
-            
-        <center> <p align=justify style="background-color:#292626d2; text-align: center;
-            border-radius:4px;
-            font-size:16px;
-            padding:15px;
-            width: 1000px;
-            height: 200px;
-            margin:5px;">
-
-        <b><font color="#fffff">We are providing scientific fitness testing, a comprehensive, evidence-based approach to assessing physical performance, health, and overall fitness using standardized and validated methods. Our tests evaluate various aspects of physical health, including cardiovascular endurance, muscular strength, flexibility, and body composition, with the goal of delivering accurate data on your physical capabilities. These assessments help identify areas for improvement, set realistic goals, track progress over time, and guide personalized fitness programming. Whether you're an athlete aiming for peak performance or someone seeking to enhance your well-being, scientific fitness testing offers precise evaluations to optimize your training, prevent injuries, and ensure long-term success. Discover the science behind your fitness and unlock your full potential with our expert fitness testing services!</font></b> 
-</p></center>
-
+    <section>
+        <div class="responsive-containerr">
+            <p class="text-content">
+                <b>
+                    We are providing scientific fitness testing, a comprehensive, evidence-based approach to assessing
+                    physical performance, health, and overall fitness using standardized and validated methods. Our
+                    tests evaluate various aspects of physical health, including cardiovascular endurance, muscular
+                    strength, flexibility, and body composition, with the goal of delivering accurate data on your
+                    physical capabilities. These assessments help identify areas for improvement, set realistic goals,
+                    track progress over time, and guide personalized fitness programming. Whether you're an athlete
+                    aiming for peak performance or someone seeking to enhance your well-being, scientific fitness
+                    testing offers precise evaluations to optimize your training, prevent injuries, and ensure long-term
+                    success. Discover the science behind your fitness and unlock your full potential with our expert
+                    fitness testing services!
+                </b>
+            </p>
+        </div>
     </section>
 
-        <br><br>
 
-            <!-- Cta Section Begin -->
+    <br><br>
 
-<section>
-
-    <center> <p align=justify style="background-color:#f34e3a; text-align: center;
-        border-radius:4px;
-        font-size:16px;
-        padding:15px;
-        width: 400px;
-        height: 50px;
-        margin:5px;">
-
-    <b><font color="#fffff">Pre Test Preperation</font></b> </p></center>
-
-    <center> <p align=justify style="background-color:#292626d2; text-align: center;
-        border-radius:4px;
-        font-size:16px;
-        padding:15px;
-        width: 1000px;
-        height: 200px;
-        margin:5px;">
-
-    <b><font color="#fffff">Our testing protocol begins with pre-test preparation, including a questionnaire, medical history form, and consent form. Baseline measurements cover resting blood pressure and heart rate, while anthropometric assessments include BMI, waist-to-hip ratio, skinfold callipers, and bioelectrical impedance analysis. After a 10-minute dynamic warm-up, participants undergo a series of fitness tests such as the Star Excursion Balance Test, Sit and Reach, Standing Long Jump Test, and Zig - Zag Agility Test. The core of our evaluation involves three Yo-Yo tests: the Yo-Yo Intermittent Endurance Test, Yo-Yo Endurance Test, and Yo-Yo Intermittent Recovery Test, each progressively increasing in intensity. Only one Yo-Yo test is conducted per testing date, with each test scheduled on separate dates. Participants start with the Yo-Yo Intermittent Endurance Test (Basic) and based on their performance and recommendations, may choose to attempt a higher level on subsequent testing dates. The session concludes with a 5-minute cool-down of static stretching.</font></b> 
-</p></center>
-</section>
+    <!-- Cta Section Begin -->
 
 
+    <!-- YOYO FItness -->
+
+    <section class="about-us-section spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5">
+                    <div class="about-pic">
+                        <img src="img/yoyoyo.jpg" alt="">
+                    </div>
+                </div>
+                <div class="col-lg-6 offset-lg-1">
+                    <div class="about-text">
+                        <div class="section-title">
+                            <h2>YO-YO FITNESS TESTING</h2>
+                            <p></p>
+                        </div>
+                        <p>Our testing protocol begins with pre-test preparation, including a questionnaire,
+                            medical history form, and consent form. Baseline measurements cover resting blood pressure
+                            and heart rate, while anthropometric assessments include BMI, waist-to-hip ratio, skinfold
+                            callipers, and bioelectrical impedance analysis. After a 10-minute dynamic warm-up,
+                            participants undergo a series of fitness tests such as the Star Excursion Balance Test, Sit
+                            and Reach, Standing Long Jump Test, and Zig - Zag Agility Test. The core of our evaluation
+                            involves three Yo-Yo tests: the Yo-Yo Intermittent Endurance Test, Yo-Yo Endurance Test, and
+                            Yo-Yo Intermittent Recovery Test, each progressively increasing in intensity. Only one Yo-Yo
+                            test is conducted per testing date, with each test scheduled on separate dates. Participants
+                            start with the Yo-Yo Intermittent Endurance Test (Basic) and based on their performance and
+                            recommendations, may choose to attempt
+                            a higher level on subsequent testing dates. The session concludes with a 5-minute cool-down
+                            of static stretching.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
 
 
- 
 
-
-
-    <!-- Cta Section End -->
-
+    <!-- yoyo Section End -->
+    <hr>
 
 
     <!-- Services Section Begin -->
     <section class="services-section spad" class="hero-items owl-carousel">
-        <div class="container" >
+        <div class="container">
 
-<center>
-                    <div class="services-items" >
-                       <div >
-                            <button> Test Protocol
-                            </button>
-                            <button> Selection Criteria
-                            </button>
-                            <button> Age Groups
-                            </button> <br><br>
-                            <button> Test Location
-                            </button>
-                            <button>Fees
-                            </button>
-                            <button> Book Your Test
-                            </button>
-                        </div>
-                    </center>
+            <center>
+                <div class="services-items">
+                    <div>
+                        <button> Test Protocol
+                        </button>
+                        <button> Selection Criteria
+                        </button>
+                        <button> Age Groups
+                        </button>
+                        <button> Test Location
+                        </button>
+                        <button>Fees
+                        </button>
+                        <button> Book Your Test
+                        </button>
+                    </div>
+            </center>
         </div>
     </section>
     <!-- Services Section End -->
 
-<!-- Test Protocol -->
+    <!-- Test Protocol -->
 
 
     <!-- Trainer Table Schedule Section Begin -->
@@ -304,9 +419,10 @@ button:active {
                     </div>
                 </div>
             </div>
-            
-           
-            <center> <p align=justify style="background-color:#f34e3a; text-align: center;
+
+
+            <center>
+                <p align=justify style="background-color:#5a120add; text-align: center;
                 border-radius:4px;
                 font-size:16px;
                 padding:15px;
@@ -314,10 +430,12 @@ button:active {
                 height: 50px;
                 margin:5px;">
 
-            <b><font color="#fffff">Pre Test Preperation</font></b> 
+                    <b>
+                        <font color="#fffff">Pre Test Preperation</font>
+                    </b>
 
-            </p>
-           <p align=center style="background-color:#dae656; text-align: center; 
+                </p>
+                <p align=center style="background-color:#ffffffde; text-align: center; 
             border-radius:2px;
             font-size:16px;
             width: 400px;
@@ -326,13 +444,17 @@ button:active {
             padding:15px;
             margin:2px;">
 
-        <b><font color="#000000">Per-Test questionnaires<br> Medical history form<br> Consent Form</font></b> 
+                    <b>
+                        <font color="#000000">Per-Test questionnaires<br> Medical history form<br> Consent Form</font>
+                    </b>
 
-        </p></center> 
+                </p>
+            </center>
 
             <center><img src="img/darr.png" width="50" height="70"></center>
-                            
-            <center> <p align=justify style="background-color:#f34e3a; text-align: center;
+
+            <center>
+                <p align=justify style="background-color:#5a120add; text-align: center;
                 border-radius:4px;
                 font-size:16px;
                 padding:15px;
@@ -340,10 +462,12 @@ button:active {
                 height: 50px;
                 margin:5px;">
 
-            <b><font color="#fffff">Baseline measurements</font></b> 
+                    <b>
+                        <font color="#fffff">Baseline measurements</font>
+                    </b>
 
-            </p>
-           <p align=center style="background-color:#dae656; text-align: center; 
+                </p>
+                <p align=center style="background-color:#ffffffde; text-align: center; 
             border-radius:2px;
             font-size:16px;
             width: 400px;
@@ -352,15 +476,19 @@ button:active {
             padding:15px;
             margin:2px;">
 
-        <b><font color="#000000">Resting Blood Pressure<br> Resting Heart Rate(RHR)</font></b> 
+                    <b>
+                        <font color="#000000">Resting Blood Pressure<br> Resting Heart Rate(RHR)</font>
+                    </b>
 
-        </p></center> 
+                </p>
+            </center>
 
             <center><img src="img/darr.png" width="50" height="70"></center>
-                   
-                    
 
-            <center> <p align=justify style="background-color:#f34e3a; text-align: center;
+
+
+            <center>
+                <p align=justify style="background-color:#5a120add; text-align: center;
                 border-radius:4px;
                 font-size:16px;
                 padding:15px;
@@ -368,10 +496,12 @@ button:active {
                 height: 50px;
                 margin:5px;">
 
-            <b><font color="#fffff">Anthropometric Measurements</font></b> 
+                    <b>
+                        <font color="#fffff">Anthropometric Measurements</font>
+                    </b>
 
-            </p>
-           <p align=center style="background-color:#dae656; text-align: center; 
+                </p>
+                <p align=center style="background-color:#ffffffde; text-align: center; 
             border-radius:2px;
             font-size:16px;
             width: 400px;
@@ -380,14 +510,19 @@ button:active {
             padding:15px;
             margin:2px;">
 
-        <b><font color="#000000">Body Mass Index(BMI)<br>Waist-to-Hip Ratio(WHR)<br>Skinfold Callipers(3 sites)<br>Bioelectrical Impedance Analysis(BIA)</font></b> 
+                    <b>
+                        <font color="#000000">Body Mass Index(BMI)<br>Waist-to-Hip Ratio(WHR)<br>Skinfold Callipers(3
+                            sites)<br>Bioelectrical Impedance Analysis(BIA)</font>
+                    </b>
 
-        </p></center> 
+                </p>
+            </center>
 
             <center><img src="img/darr.png" width="50" height="70"></center>
-                 
 
-            <center> <p align=justify style="background-color:#f34e3a; text-align: center;
+
+            <center>
+                <p align=justify style="background-color:#5a120add; text-align: center;
                 border-radius:4px;
                 font-size:16px;
                 padding:15px;
@@ -395,10 +530,12 @@ button:active {
                 height: 50px;
                 margin:5px;">
 
-            <b><font color="#fffff">Warm - Up</font></b> 
+                    <b>
+                        <font color="#fffff">Warm - Up</font>
+                    </b>
 
-            </p>
-           <p align=center style="background-color:#dae656; text-align: center; 
+                </p>
+                <p align=center style="background-color:#ffffffde; text-align: center; 
             border-radius:2px;
             font-size:16px;
             width: 400px;
@@ -407,13 +544,17 @@ button:active {
             padding:15px;
             margin:2px;">
 
-        <b><font color="#000000">10 minutes Dynamic Exercises</font></b> 
+                    <b>
+                        <font color="#000000">10 minutes Dynamic Exercises</font>
+                    </b>
 
-        </p></center> 
+                </p>
+            </center>
 
             <center><img src="img/darr.png" width="50" height="70"></center>
 
-            <center> <p align=justify style="background-color:#f34e3a; text-align: center;
+            <center>
+                <p align=justify style="background-color:#5a120add; text-align: center;
                 border-radius:4px;
                 font-size:16px;
                 padding:15px;
@@ -421,10 +562,12 @@ button:active {
                 height: 50px;
                 margin:5px;">
 
-            <b><font color="#fffff">Fitness Tests</font></b> 
+                    <b>
+                        <font color="#fffff">Fitness Tests</font>
+                    </b>
 
-            </p>
-           <p align=center style="background-color:#dae656; text-align: center; 
+                </p>
+                <p align=center style="background-color:#ffffffde; text-align: center; 
             border-radius:2px;
             font-size:16px;
             width: 400px;
@@ -433,57 +576,36 @@ button:active {
             padding:15px;
             margin:2px;">
 
-        <b><font color="#000000">Star Excursion Balance Test<br>Sit and Reach<br>Standing Long Jump Test<br>Zig Zag Agility Test</font></b> 
+                    <b>
+                        <font color="#000000">Star Excursion Balance Test<br>Sit and Reach<br>Standing Long Jump
+                            Test<br>Zig Zag Agility Test</font>
+                    </b>
 
-        </p></center> 
+                </p>
+            </center>
 
             <center><img src="img/darr.png" width="50" height="70"></center>
 
-<!--Three Columns-->
+            <!--Three Columns-->
 
             <div class="responsive-three-column-grid">
-                <div> 
-                    
-                    <center> <p align=justify style="background-color:#f34e3a; text-align: center;
-                        border-radius:4px;
-                        font-size:16px;
-                        padding:15px;
-                        width: 200px;
-                        height: 50px;
-                        margin:5px;">
-        
-                    <b><font color="#fffff">BASIC</font></b> 
-                    
-
-                    <p align=center style="background-color:#dae656; text-align: center; 
-                    border-radius:2px;
-                    font-size:16px;
-                    width: 300px;
-                    align-self: center;
-                    height: 200px;
-                    padding:15px;
-                    margin:2px;">
-        
-                <b><font color="#f34e3a">Yo-Yo Intermittent Endurance Test<br></font>
-                    <font color="#000000">
-                        Speed Levels 1 -14<br>Shuttle 2 x 20m<br>Start at 8.00km/hr<br>Finish at 14.5km/hr<br>Total Distance 4320m
-                </font></b> 
-                </p></center> 
-                    
-                    </div>
                 <div>
 
-                    <center> <p align=justify style="background-color:#f34e3a; text-align: center;
+                    <center>
+                        <p align=justify style="background-color:#5a120add; text-align: center;
                         border-radius:4px;
                         font-size:16px;
                         padding:15px;
                         width: 200px;
                         height: 50px;
                         margin:5px;">
-        
-                    <b><font color="#fffff">INTERMEDIATE</font></b> 
 
-                    <p align=center style="background-color:#dae656; text-align: center; 
+                            <b>
+                                <font color="#fffff">BASIC</font>
+                            </b>
+
+
+                        <p align=center style="background-color:#ffffffde; text-align: center; 
                     border-radius:2px;
                     font-size:16px;
                     width: 300px;
@@ -491,28 +613,34 @@ button:active {
                     height: 200px;
                     padding:15px;
                     margin:2px;">
-        
-                <b><font color="#f34e3a">
-                    Yo-Yo Endurance Test<br> </font>
-                    
-                    <font color="#000000">
-                        Speed Levels 1 -20<br>Shuttle 20m<br>Start at 8.00km/hr<br>Finish at 17.5km/hr<br>Total Distance 4460m
-                </font></b> </p></center>
+
+                            <b>
+                                <font color="#f34e3a">Yo-Yo Intermittent Endurance Test<br></font>
+                                <font color="#000000">
+                                    Speed Levels 1 -14<br>Shuttle 2 x 20m<br>Start at 8.00km/hr<br>Finish at
+                                    14.5km/hr<br>Total Distance 4320m
+                                </font>
+                            </b>
+                        </p>
+                    </center>
 
                 </div>
                 <div>
-                    
-                    <center> <p align=justify style="background-color:#f34e3a; text-align: center;
+
+                    <center>
+                        <p align=justify style="background-color:#5a120add; text-align: center;
                         border-radius:4px;
                         font-size:16px;
                         padding:15px;
                         width: 200px;
                         height: 50px;
                         margin:5px;">
-        
-                    <b><font color="#fffff">ADVANCED</font></b> 
 
-                    <p align=center style="background-color:#dae656; text-align: center; 
+                            <b>
+                                <font color="#fffff">INTERMEDIATE</font>
+                            </b>
+
+                        <p align=center style="background-color:#ffffffde; text-align: center; 
                     border-radius:2px;
                     font-size:16px;
                     width: 300px;
@@ -520,19 +648,62 @@ button:active {
                     height: 200px;
                     padding:15px;
                     margin:2px;">
-        
-                <b><font color="#000000">
-                    Yo-Yo Intermittent Recovery Test<br></font>
-                    
-                    <font color="#000000">
-                        Speed Levels 5 -23<br>Shuttle 2 x 20m<br>Start at 10.00km/hr<br>Finish at 19.00km/hr<br>Total Distance 3640m
-                </font></b> </p></center>
+
+                            <b>
+                                <font color="#f34e3a">
+                                    Yo-Yo Endurance Test<br> </font>
+
+                                <font color="#000000">
+                                    Speed Levels 1 -20<br>Shuttle 20m<br>Start at 8.00km/hr<br>Finish at
+                                    17.5km/hr<br>Total Distance 4460m
+                                </font>
+                            </b>
+                        </p>
+                    </center>
+
+                </div>
+                <div>
+
+                    <center>
+                        <p align=justify style="background-color:#5a120add; text-align: center;
+                        border-radius:4px;
+                        font-size:16px;
+                        padding:15px;
+                        width: 200px;
+                        height: 50px;
+                        margin:5px;">
+
+                            <b>
+                                <font color="#fffff">ADVANCED</font>
+                            </b>
+
+                        <p align=center style="background-color:#ffffffde; text-align: center; 
+                    border-radius:2px;
+                    font-size:16px;
+                    width: 300px;
+                    align-self: center;
+                    height: 200px;
+                    padding:15px;
+                    margin:2px;">
+
+                            <b>
+                                <font color="#000000">
+                                    Yo-Yo Intermittent Recovery Test<br></font>
+
+                                <font color="#000000">
+                                    Speed Levels 5 -23<br>Shuttle 2 x 20m<br>Start at 10.00km/hr<br>Finish at
+                                    19.00km/hr<br>Total Distance 3640m
+                                </font>
+                            </b>
+                        </p>
+                    </center>
                 </div>
             </div>
 
             <center><img src="img/darr.png" width="50" height="70"></center>
 
-            <center> <p align=justify style="background-color:#f34e3a; text-align: center;
+            <center>
+                <p align=justify style="background-color:#5a120add; text-align: center;
                 border-radius:4px;
                 font-size:16px;
                 padding:15px;
@@ -540,10 +711,12 @@ button:active {
                 height: 50px;
                 margin:5px;">
 
-            <b><font color="#fffff">Cool Down</font></b> 
+                    <b>
+                        <font color="#fffff">Cool Down</font>
+                    </b>
 
-            </p>
-           <p align=center style="background-color:#dae656; text-align: center; 
+                </p>
+                <p align=center style="background-color:#ffffffde; text-align: center; 
             border-radius:2px;
             font-size:16px;
             width: 400px;
@@ -552,16 +725,19 @@ button:active {
             padding:15px;
             margin:2px;">
 
-        <b><font color="#000000">5 Minutes Static Stretching</font></b> 
+                    <b>
+                        <font color="#000000">5 Minutes Static Stretching</font>
+                    </b>
 
-        </p></center> 
+                </p>
+            </center>
 
 
 
 
-                    </div>
-                </div>
-            </div>
+        </div>
+        </div>
+        </div>
         </div>
     </section>
     <br>
@@ -574,106 +750,136 @@ button:active {
 
 
 
-<!-- Selection Criteria -->
+    <!-- Selection Criteria -->
 
 
 
-<section class="trainer-schedule set-bg spad" data-setbg="img/trainer-bg.jpg" id="locat">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="section-title">
-                    <h2>Selection Criteria</h2>
-                    <p></p>
+    <section class="trainer-schedule set-bg spad" data-setbg="" id="locat">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title">
+                        <h2>
+                            <font color="#000000">Selection Criteria</font>
+                        </h2>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="schedule-table">
+
+                        <center>
+                            <p align=justify style="
+                   background-color:#ebedd4d7 ; 
+                   text-align:center; 
+                    background-color: #5a120add;
+                    border: 2px solid #ccc;     
+                    border-radius: 10px;       
+                    padding: 20px;             
+                    width: 100%;                
+                    max-width: 600px;          
+                    margin: 20px auto;         
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+                    font-family: Arial, sans-serif;">
+
+                                <b>
+                                    <font color="#fffff">Inclusion Criteria</font>
+                                </b>
+
+                            </p>
+                            <p align=center style="
+                   background-color:#5a120add ; 
+                   text-align:left; 
+                    background-color: #ebedd4d7;
+                    border: 2px solid #ccc;     
+                    border-radius: 10px;       
+                    padding: 20px;             
+                    width: 100%;                
+                    max-width: 600px;          
+                    margin: 20px auto;         
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+                    font-family: Arial, sans-serif;">
+
+                                <b>
+
+                                    ⦁ Aged 20 to 60 years old Men and Women. <br>
+                                    ⦁ Free from significant cardiovascular, musculoskeletal, or metabolic disorders.<br>
+                                    ⦁ Normal resting blood pressure and heart rate.<br>
+                                    ⦁ Light physical activity. (exercise 1-3 times/week, 15-30 minutes of elevated heart
+                                    rate activity)<br>
+                                    ⦁ Provides signed informed consent.<br>
+                                    ⦁ Medical clearance for stable health conditions. (e.g., controlled asthma or
+                                    diabetes)<br>
+                                    ⦁ Able to perform warm-ups, fitness, and Yo-Yo tests without limitations.
+
+
+                                </b>
+
+                            </p>
+
+                            <p align=justify style="
+                   background-color:#ebedd4d7 ; 
+                   text-align:center; 
+                    background-color: #5a120add;
+                    border: 2px solid #ccc;     
+                    border-radius: 10px;       
+                    padding: 20px;             
+                    width: 100%;                
+                    max-width: 600px;          
+                    margin: 20px auto;         
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+                    font-family: Arial, sans-serif;">
+
+                                <b>
+                                    <font color="#fffff">Exclusion Criteria</font>
+                                </b>
+
+                            </p>
+                            <p align=center style="
+                   background-color:#5a120add ; 
+                   text-align:left; 
+                    background-color: #ebedd4d7;
+                    border: 2px solid #ccc;     
+                    border-radius: 10px;       
+                    padding: 20px;             
+                    width: 100%;                
+                    max-width: 600px;          
+                    margin: 20px auto;         
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+                    font-family: Arial, sans-serif;">
+
+                                <b>
+
+                                    ⦁ Presence of cardiovascular, respiratory, or metabolic disorders. (e.g.,
+                                    uncontrolled hypertension, recent heart attack)<br>
+                                    ⦁ Recent musculoskeletal injuries, surgeries, or conditions limiting mobility.
+                                    (e.g., torn ligaments, severe arthritis)<br>
+                                    ⦁ Pregnant individuals.<br>
+                                    ⦁ Use of heart rate-modifying medications. (e.g., beta-blockers)<br>
+                                    ⦁ Uncontrolled medical conditions. (e.g., diabetes, epilepsy, asthma)<br>
+                                    ⦁ Highly sedentary individuals not meeting minimum physical activity levels<br>
+
+
+                                </b>
+
+                            </p>
+                        </center>
+
+
+
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="schedule-table">
-
-                  <center> <p align=justify style="background-color:#f34e3a; text-align: center;
-                        border-radius:4px;
-                        font-size:16px;
-                        padding:15px;
-                        width: 800px;
-                        height: 50px;
-                        margin:5px;">
-        
-                    <b><font color="#fffff">Inclusion Criteria</font></b> 
-        
-                    </p>
-                   <p align=center style="background-color:#dae656 ; text-align:left; 
-                    border-radius:2px;
-                    font-size:16px;
-                    width: 800px;
-                    align-self: center;
-                    height: 200px;
-                    padding:15px;
-                    margin:2px;">
-       
-                <b>
-                    
-                ⦁	Aged 20 to 60 years old Men and Women. <br>
-                ⦁	Free from significant cardiovascular, musculoskeletal, or metabolic disorders.<br>
-                ⦁	Normal resting blood pressure and heart rate.<br>
-                ⦁	Light physical activity. (exercise 1-3 times/week, 15-30 minutes of elevated heart rate activity)<br>
-                ⦁	Provides signed informed consent.<br>
-                ⦁	Medical clearance for stable health conditions. (e.g., controlled asthma or diabetes)<br>
-                ⦁	Able to perform warm-ups, fitness, and Yo-Yo tests without limitations.
-
-                
-               </b> 
-        
-                </p>
-
-                <p align=justify style="background-color:#f34e3a; text-align: center;
-                border-radius:4px;
-                font-size:16px;
-                padding:15px;
-                width: 800px;
-                height: 50px;
-                margin:5px;">
-
-            <b><font color="#fffff">Exclusion Criteria</font></b> 
-
-            </p>
-           <p align=center style="background-color:#dae656 ; text-align:left; 
-            border-radius:2px;
-            font-size:16px;
-            width: 800px;
-            align-self: center;
-            height: 230px;
-            padding:15px;
-            margin:2px;">
-
-        <b>
-            
-            ⦁	Presence of cardiovascular, respiratory, or metabolic disorders. (e.g., uncontrolled hypertension, recent heart attack)<br>
-            ⦁	Recent musculoskeletal injuries, surgeries, or conditions limiting mobility. (e.g., torn ligaments, severe arthritis)<br>
-            ⦁	Pregnant individuals.<br>
-            ⦁	Use of heart rate-modifying medications. (e.g., beta-blockers)<br>
-            ⦁	Uncontrolled medical conditions. (e.g., diabetes, epilepsy, asthma)<br>
-            ⦁	Highly sedentary individuals not meeting minimum physical activity levels<br>
-
-        
-       </b> 
-
-        </p></center> 
-                
-
-
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+    </section>
 
 
 
-<br>
+    <br>
 
-<!-- Test location -->
+    <!-- Test location -->
 
 
 
@@ -707,145 +913,169 @@ button:active {
 
                             <tbody>
                                 <tr>
-                                    <td><h6>4 January 2025 </h6></td>
+                                    <td>
+                                        <h6>4 January 2025 </h6>
+                                    </td>
                                     <td class="gym">
                                         <h6>Perth</h6>
                                     </td>
-                                    
+
                                     <td class="yoga">
-                                        <h6>Booking Now</h6> 
-                                    </td>   
+                                        <h6>Booking Now</h6>
+                                    </td>
                                 </tr>
 
                                 <tr>
-                                    <td><h6>11 January 2025</h6> </td>
+                                    <td>
+                                        <h6>11 January 2025</h6>
+                                    </td>
                                     <td class="gym">
                                         <h6>Perth</h6>
                                     </td>
-                                    
+
                                     <td class="yoga">
-                                        <h6>Booking Now</h6> 
-                                    </td>   
+                                        <h6>Booking Now</h6>
+                                    </td>
                                 </tr>
 
 
                                 <tr>
-                                    <td><h6>25 January 2025</h6> </td>
+                                    <td>
+                                        <h6>25 January 2025</h6>
+                                    </td>
                                     <td class="gym">
                                         <h6>Dundee</h6>
                                     </td>
-                                    
+
                                     <td class="yoga">
-                                        <h6>Booking Now</h6> 
-                                    </td>   
+                                        <h6>Booking Now</h6>
+                                    </td>
                                 </tr>
 
                                 <tr>
-                                    <td><h6>1 February 2025</h6> </td>
+                                    <td>
+                                        <h6>1 February 2025</h6>
+                                    </td>
                                     <td class="gym">
                                         <h6>Dundee</h6>
                                     </td>
-                                    
+
                                     <td class="yoga">
-                                        <h6>Booking Now</h6> 
-                                    </td>   
+                                        <h6>Booking Now</h6>
+                                    </td>
                                 </tr>
 
 
                                 <tr>
-                                    <td><h6>15 February 2025</h6> </td>
+                                    <td>
+                                        <h6>15 February 2025</h6>
+                                    </td>
                                     <td class="gym">
                                         <h6>Fife</h6>
                                     </td>
-                                    
+
                                     <td class="yoga">
-                                        <h6>Booking Now</h6> 
-                                    </td>   
+                                        <h6>Booking Now</h6>
+                                    </td>
                                 </tr>
 
-                               
+
 
                                 <tr>
-                                    <td><h6>1 March 2025</h6> </td>
+                                    <td>
+                                        <h6>1 March 2025</h6>
+                                    </td>
                                     <td class="gym">
                                         <h6>Edinburgh</h6>
                                     </td>
-                                    
+
                                     <td class="yoga">
-                                        <h6>Booking Now</h6> 
-                                    </td>   
+                                        <h6>Booking Now</h6>
+                                    </td>
                                 </tr>
 
                                 <tr>
-                                    <td><h6>8 March 2025</h6> </td>
+                                    <td>
+                                        <h6>8 March 2025</h6>
+                                    </td>
                                     <td class="gym">
                                         <h6>Edinburgh</h6>
                                     </td>
-                                    
+
                                     <td class="yoga">
-                                        <h6>Booking Now</h6> 
-                                    </td>   
+                                        <h6>Booking Now</h6>
+                                    </td>
                                 </tr>
 
 
                                 <tr>
-                                    <td><h6>22 March 2025 </h6></td>
+                                    <td>
+                                        <h6>22 March 2025 </h6>
+                                    </td>
                                     <td class="gym">
                                         <h6>Glasgow</h6>
                                     </td>
-                                    
+
                                     <td class="yoga">
-                                        <h6>Booking Now</h6> 
-                                    </td>   
+                                        <h6>Booking Now</h6>
+                                    </td>
                                 </tr>
 
                                 <tr>
-                                    <td><h6>29 March 2025</h6> </td>
+                                    <td>
+                                        <h6>29 March 2025</h6>
+                                    </td>
                                     <td class="gym">
                                         <h6>Glasgow</h6>
                                     </td>
-                                    
+
                                     <td class="yoga">
-                                        <h6>Booking Now</h6> 
-                                    </td>   
+                                        <h6>Booking Now</h6>
+                                    </td>
                                 </tr>
 
 
                                 <tr>
-                                    <td><h6>12 April 2025</h6> </td>
+                                    <td>
+                                        <h6>12 April 2025</h6>
+                                    </td>
                                     <td class="gym">
                                         <h6>Aberdeen</h6>
                                     </td>
-                                    
+
                                     <td class="yoga">
-                                        <h6>Booking Now</h6> 
-                                    </td>   
+                                        <h6>Booking Now</h6>
+                                    </td>
                                 </tr>
 
                                 <tr>
-                                    <td><h6>19 April 2025</h6> </td>
+                                    <td>
+                                        <h6>19 April 2025</h6>
+                                    </td>
                                     <td class="gym">
                                         <h6>Aberdeen</h6>
                                     </td>
-                                    
+
                                     <td class="yoga">
-                                        <h6>Booking Now</h6> 
-                                    </td>   
+                                        <h6>Booking Now</h6>
+                                    </td>
                                 </tr>
 
 
                                 <tr>
-                                    <td><h6>26 April 2025</h6> </td>
+                                    <td>
+                                        <h6>26 April 2025</h6>
+                                    </td>
                                     <td class="gym">
                                         <h6>Inverness</h6>
                                     </td>
-                                    
+
                                     <td class="yoga">
-                                        <h6>Booking Now</h6> 
-                                    </td>   
+                                        <h6>Booking Now</h6>
+                                    </td>
                                 </tr>
 
-                            
+
 
                             </tbody>
                         </table>
@@ -858,84 +1088,92 @@ button:active {
     <!-- Trainer Table Schedule Section End -->
 
 
-<!-- Age Goups -->
+    <!-- Age Goups -->
 
 
-<section class="trainer-schedule set-bg spad" data-setbg="img/trainer-bg.jpg" id="locat">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="section-title">
-                    <h2>Age Groups - 2025</h2>
-                    <p></p>
+    <section class="trainer-schedule set-bg spad" data-setbg="img/trainer-bg.jpg" id="locat">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title">
+                        <h2>Age Groups - 2025</h2>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="schedule-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Age Groups</th>
+                                    <th>Gender</th>
+                                    <th>Date of Birth</th>
+                                </tr>
+                            </thead>
+
+
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <h6>20-30 Year </h6>
+                                    </td>
+                                    <td class="gym">
+                                        <h6>Men / Women</h6>
+                                    </td>
+
+                                    <td class="yoga">
+                                        <h6>From 1/1/2006 to 31/12/1995</h6>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <h6>31-40 Year </h6>
+                                    </td>
+                                    <td class="gym">
+                                        <h6>Men / Women</h6>
+                                    </td>
+
+                                    <td class="yoga">
+                                        <h6>From 1/1/1996 to 31/12/1985</h6>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h6>41-50 Year </h6>
+                                    </td>
+                                    <td class="gym">
+                                        <h6>Men / Women</h6>
+                                    </td>
+
+                                    <td class="yoga">
+                                        <h6>From 1/1/1984 to 31/12/1975</h6>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h6>50-60 Year </h6>
+                                    </td>
+                                    <td class="gym">
+                                        <h6>Men / Women</h6>
+                                    </td>
+
+                                    <td class="yoga">
+                                        <h6>From 1/1/1974 to 31/12/1965</h6>
+                                    </td>
+                                </tr>
+
+
+
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="schedule-table">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Age Groups</th>
-                                <th>Gender</th>
-                                <th>Date of Birth</th>
-                            </tr>
-                        </thead>
-
-
-                        <tbody>
-                            <tr>
-                                <td><h6>20-30 Year </h6></td>
-                                <td class="gym">
-                                    <h6>Men / Women</h6>
-                                </td>
-                                
-                                <td class="yoga">
-                                    <h6>From 1/1/2006 to 31/12/1995</h6> 
-                                </td>   
-                            </tr>
-
-                            <tr>
-                                <td><h6>31-40 Year </h6></td>
-                                <td class="gym">
-                                    <h6>Men / Women</h6>
-                                </td>
-                                
-                                <td class="yoga">
-                                    <h6>From 1/1/1996 to 31/12/1985</h6> 
-                                </td>   
-                            </tr>
-                            <tr>
-                                <td><h6>41-50 Year </h6></td>
-                                <td class="gym">
-                                    <h6>Men / Women</h6>
-                                </td>
-                                
-                                <td class="yoga">
-                                    <h6>From 1/1/1984 to 31/12/1975</h6> 
-                                </td>   
-                            </tr>
-                            <tr>
-                                <td><h6>50-60 Year </h6></td>
-                                <td class="gym">
-                                    <h6>Men / Women</h6>
-                                </td>
-                                
-                                <td class="yoga">
-                                    <h6>From 1/1/1974 to 31/12/1965</h6> 
-                                </td>   
-                            </tr>
-
-                        
-
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+    </section>
 
 
 
@@ -949,18 +1187,21 @@ button:active {
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title">
-                        <center> <p align=justify style="background-color:#f34e3a; text-align: center;
+                        <center>
+                            <p align=justify style="background-color:#f34e3a; text-align: center;
                             border-radius:4px;
                             font-size:16px;
                             padding:15px;
                             width: 400px;
                             height: 50px;
                             margin:5px;">
-            
-                        <b><font color="#fffff">Fees</font></b> 
-            
-                        </p>
-                       <p align=center style="background-color:#edeee0; text-align: center; 
+
+                                <b>
+                                    <font color="#fffff">Fees</font>
+                                </b>
+
+                            </p>
+                            <p align=center style="background-color:#edeee0; text-align: center; 
                         border-radius:2px;
                         font-size:16px;
                         width: 400px;
@@ -968,15 +1209,18 @@ button:active {
                         height: 80px;
                         padding:15px;
                         margin:2px;">
-            
-                    <b><font color="#f34e3a" size="50">&pound;40</font></b> 
-            
-                    </p></center> 
+
+                                <b>
+                                    <font color="#f34e3a" size="50">&pound;40</font>
+                                </b>
+
+                            </p>
+                        </center>
                     </div>
                 </div>
             </div>
 
-            </div>
+        </div>
         </div>
     </section>
     <!-- Latest News Section End -->
@@ -997,41 +1241,44 @@ button:active {
                 <div class="row m-0">
                     <div class="col-lg-4 order-lg-1 p-0">
 
-                        </div>
                     </div>
-                  
                 </div>
+
             </div>
+        </div>
         </div>
     </section>
     <!-- Team Section End -->
     <!-- Footer Section Begin -->
-   
-        <div class="register">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="copyright">
-                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Created  <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">CodeCC</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                        </div>
-                        <div class="footer-widget">
-                            <ul>
-                                <li>Privacy Policy</li>
-                                <li>Terms Of Service</li>
-                                <li>Careers</li>
-                            </ul>
-                        </div>
-                        <div class="footer-links">
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-instagram"></i></a>
-                        </div>
+
+    <div class="register">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="copyright">
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        Copyright &copy;
+                        <script>document.write(new Date().getFullYear());</script> All rights reserved | Created <i
+                            class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com"
+                            target="_blank">CodeCC</a>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    </div>
+                    <div class="footer-widget">
+                        <ul>
+                            <li>Privacy Policy</li>
+                            <li>Terms Of Service</li>
+                            <li>Careers</li>
+                        </ul>
+                    </div>
+                    <div class="footer-links">
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                        <a href="#"><i class="fa fa-instagram"></i></a>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     </footer>
     <!-- Footer Section End -->
 
